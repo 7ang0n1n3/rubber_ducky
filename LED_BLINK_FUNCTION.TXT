@@ -1,0 +1,55 @@
+REM PURPOSE : Three functions for green blink 5 times, red blink 5 times, green/red blink 3 sets
+REM           Copy and paste into your script and call the function for visaul alerts.
+REM AUTHOR  : 7ANG0N1N3 
+REM DATE    : SEP 07, 2022
+
+ATTACKMODE HID
+LED_OFF
+DELAY 500
+
+REM Blink green five times
+FUNCTION BLINK_GRN()
+    VAR $LOOP = 5
+    WHILE ($LOOP > 0)
+        LED_G
+        DELAY 90
+        LED_OFF
+        DELAY 100
+        $LOOP = ($LOOP - 1)
+    END_WHILE
+END_FUNCTION
+
+REM Blink red five times
+FUNCTION BLINK_RED()
+    VAR $LOOP = 5
+    WHILE ($LOOP > 0)
+        LED_R
+        DELAY 90
+        LED_OFF
+        DELAY 100
+        $LOOP = ($LOOP - 1)
+    END_WHILE
+END_FUNCTION
+
+REM Blink three times in group of green/red
+FUNCTION BLINK_GRN_RED()
+    VAR $LOOP = 3
+    WHILE ($LOOP > 0)
+        LED_G
+        DELAY 90
+        LED_R
+        DELAY 90
+        LED_OFF
+        DELAY 100
+        $LOOP = ($LOOP - 1)
+    END_WHILE
+END_FUNCTION
+
+REM Test three functions
+BLINK_GRN()
+DELAY 300
+BLINK_RED()
+DELAY 300
+BLINK_GRN_RED()
+
+ATTACKMODE OFF
